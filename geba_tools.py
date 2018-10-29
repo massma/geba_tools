@@ -91,7 +91,8 @@ def load_geba_dataframe(filename):
     for i, line in enumerate(f):
         new_data = [id_loader(line), type_loader(i), var_loader(line),
                     year_loader(line), 1, month_loader(i, line, 0)]
-        for month in range(1, 12):
+        data.append(new_data)
+        for month in range(1,12):
             new_data = new_data[:-2]
             new_data.extend([month+1, month_loader(i, line, month)])
             data.append(new_data)
